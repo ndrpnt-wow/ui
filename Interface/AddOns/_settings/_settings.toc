@@ -1,0 +1,5 @@
+## Interface: 80000
+## Title: _settings
+
+cvars\cvars.xml
+misc.lua

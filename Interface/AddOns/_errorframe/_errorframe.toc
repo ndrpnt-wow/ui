@@ -1,0 +1,4 @@
+## Interface: 80000
+## Title: _errorframe
+
+core.lua
