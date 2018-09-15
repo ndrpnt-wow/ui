@@ -22,7 +22,10 @@ f:SetScript("OnEvent", function()
 	SetCVar("RAIDweatherDensity", 0)				-- Level of weather effects in raids?. 0 to 3.
 	SetCVar("mapFade", 0)						-- Whether to fade out the world map when moving; default: 1
 
-
+	------------------
+	-- COMBO POINTS --
+	------------------
+	SetCVar("comboPointLocation", 1)		-- 	Location of combo points in UI. 1=target, 2=self
 
 	-----------
 	-- ARENA --

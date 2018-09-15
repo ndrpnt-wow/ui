@@ -5,7 +5,7 @@ hooksecurefunc("UIParent_UpdateTopFramePositions", function()
 	PlayerFrame_SetLocked(true)
 
 	TargetFrame:ClearAllPoints()
-	TargetFrame:SetPoint("TOP", PlayerFrame, "BOTTOM", 99, 30)
+	TargetFrame:SetPoint("TOP", PlayerFrame, "BOTTOM", 99, 55)
 	TargetFrame:SetUserPlaced(true)
 	TargetFrame_SetLocked(true)
 
