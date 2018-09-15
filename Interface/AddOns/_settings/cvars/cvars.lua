@@ -25,7 +25,7 @@ f:SetScript("OnEvent", function()
 	------------------
 	-- COMBO POINTS --
 	------------------
-	SetCVar("comboPointLocation", 1)		-- 	Location of combo points in UI. 1=target, 2=self
+	SetCVar("comboPointLocation", 2)		-- 	Location of combo points in UI. 1=target, 2=self
 
 	-----------
 	-- ARENA --
