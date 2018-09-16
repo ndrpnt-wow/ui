@@ -96,8 +96,8 @@ ns.macros[259] = {
 	["h"] = [[
 /use [nomod] Blind
 /use [mod:shift, @focus] Blind
-/use [mod:alt]
-/use [mod:ctrl, @focus]
+/use [mod:alt] Neurotoxin
+/use [mod:ctrl, @focus] Neurotoxin
 ]],
 
 	["v"] = [[
