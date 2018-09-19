@@ -1,88 +1,55 @@
 local eventFrame = CreateFrame("Frame")
 local events = {}
-local currentRealmName = GetRealmName()
-local currentRealm = string.upper(string.gsub(currentRealmName, "%s+", ""))
-local currentName = UnitName("player")
+local realmName = GetRealmName()
+local formatedRealmName = string.upper(string.gsub(realmName, "%s+", ""))
+local playerName = UnitName("player")
 
-local formatName = function(name, class)
-
-	local colors = RAID_CLASS_COLORS[class]
-
-	return string.format("|cff%02x%02x%02x%s|r", colors.r * 255, colors.g * 255, colors.b * 255, name)
+local colorString = function(str, color)
+    return format("|cff%02x%02x%02x%s|r", color.r * 255, color.g * 255, color.b * 255, str)
 end
 
-local printRealmMoney = function(arg)
-
-	local realm
-	local total = 0
-
-	if type(Golds[arg]) ~= "table" then
-		realm = currentRealm
-	else
-		realm = arg
-	end
-
-	print("/*")
-
-	for name, _ in pairs(Golds[realm]) do
-
-		local class = Golds[realm][name]["class"]
-		local money = Golds[realm][name]["money"]
-
-		total = total + money
-
-		print(formatName(name, class) .. ": " .. GetCoinTextureString(money))
-	end
-
-	print("> "..RealmNames[realm]..": " .. GetCoinTextureString(total))
-	print("*/")
-end
-
-local printTotalmMoney = function()
-
-	local total = 0
-	local realmTotal
-
-	print("/*")
-
-	for realm, _ in pairs(Golds) do
-
-		realmTotal = 0
-
-		for name, _ in pairs(Golds[realm]) do
-
-			local money = Golds[realm][name]["money"]
-
-			total = total + money
-			realmTotal = realmTotal + money
+local displayTotalmMoney = function()
+	local totalMoney = 0
+	for realm, _ in pairs(goldsDB) do
+		local realmMoney = 0
+		for name, _ in pairs(goldsDB[realm]["characters"]) do
+			realmMoney = realmMoney + goldsDB[realm]["characters"][name]["money"]
 		end
-
-		print(RealmNames[realm]..": ".. GetCoinTextureString(realmTotal))
+        totalMoney = totalMoney + realmMoney
+		DEFAULT_CHAT_FRAME:AddMessage(goldsDB[realm]["name"]..": ".. GetCoinTextureString(realmMoney))
 	end
-
-	print("> Total: ".. GetCoinTextureString(total))
-	print("*/")
+	DEFAULT_CHAT_FRAME:AddMessage("> Total: ".. GetCoinTextureString(totalMoney))
 end
 
-events["PLAYER_LOGIN"] = function(self, ...)
+local displaysRealmMoney = function(realm)
+	local realmMoney = 0
+	for name, _ in pairs(goldsDB[realm]["characters"]) do
+		local class = goldsDB[realm]["characters"][name]["class"]
+		local money = goldsDB[realm]["characters"][name]["money"]
+		realmMoney = realmMoney + money
+		DEFAULT_CHAT_FRAME:AddMessage(colorString(name, RAID_CLASS_COLORS[class]) .. ": " .. GetCoinTextureString(money))
+	end
+	DEFAULT_CHAT_FRAME:AddMessage("> "..goldsDB[realm]["name"]..": " .. GetCoinTextureString(realmMoney))
+end
 
-	if type(Golds) ~= "table" then
-		Golds = {}
+events["PLAYER_LOGIN"] = function()
+	if type(goldsDB) ~= "table" then goldsDB = {} end
+
+	if type(goldsDB[formatedRealmName]) ~= "table" then
+		goldsDB[formatedRealmName] = {
+            name = realmName,
+            characters = {}
+        }
 	end
 
-	if type(Golds[currentRealm]) ~= "table" then
-		Golds[currentRealm] = {}
-		RealmNames[currentRealm] = currentRealmName
-	end
-
-	Golds[currentRealm][currentName] = {
+	goldsDB[formatedRealmName]["characters"][playerName] = {
 		money = GetMoney(),
 		class = select(2, UnitClass("player"))
 	}
 end
 
-events["PLAYER_MONEY"] = function(self, ...)
-	Golds[currentRealm][currentName]["money"] = GetMoney()
+events["PLAYER_MONEY"] = function()
+	goldsDB[formatedRealmName]["characters"][playerName]["money"] = GetMoney()
 end
 
 eventFrame:SetScript("OnEvent", function(self, event, ...)
@@ -93,15 +60,12 @@ for k, _ in pairs(events) do
 	eventFrame:RegisterEvent(k)
 end
 
-SLASH_NDRPNTGOLDS1 = "/golds"
-SLASH_NDRPNTGOLDS2 = "/gold"
-SlashCmdList.NDRPNTGOLDS = function(msg, editbox)
-
-	local arg = string.upper(string.gsub(msg, "%s+", ""))
-
+SlashCmdList["GOLDS"] = function(arg)
+	arg = string.upper(string.gsub(arg, "%s+", ""))
 	if arg == "TOTAL" or arg == "ALL" then
-		printTotalmMoney()
-	else
-		printRealmMoney(arg)
+		displayTotalmMoney()
+    else
+        displaysRealmMoney(type(goldsDB[arg]) == "table" and arg or formatedRealmName)
 	end
 end
+SLASH_GOLDS1 = "/golds"

@@ -1,6 +1,6 @@
 ## Interface: 80000
 ## Title: _slashcommands
-## SavedVariables: Golds, RealmNames
+## SavedVariables: goldsDB
 
 frames.lua
 golds.lua
