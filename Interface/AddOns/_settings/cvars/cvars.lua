@@ -2,7 +2,9 @@ local f = CreateFrame("frame")
 f:SetScript("OnEvent", function()
 
 
-
+	-------------------
+	-- MISCELLANEOUS --
+	-------------------
 	SetCVar("scriptErrors", 1)
 	SetCVar("worldPreloadNonCritical", 0)
 	SetCVar("worldPreloadHighResTextures", 0)
@@ -37,7 +39,6 @@ f:SetScript("OnEvent", function()
 	----------------
 	-- NAMEPLATES --
 	----------------
-
 	SetCVar("nameplateMaxDistance", 70)			-- The max distance to show nameplates; default: 45
 	SetCVar("nameplateTargetBehindMaxDistance", -1)	-- The max distance to show the target nameplate when the target is behind the camera; default: 15
 	SetCVar("nameplateOtherBottomInset", -1)		-- The inset from the bottom (in screen percent) that the non-self nameplates are clamped to; default: .1
@@ -100,7 +101,6 @@ f:SetScript("OnEvent", function()
 	------------
 	-- CAMERA --
 	------------
-
 	SetCVar("cameraBobbing", 0)					-- Disable camera bobbing in first person mode
 	SetCVar("cameraDistanceMaxZoomFactor", 2.6)	-- Set max camera distance
 	SetCVar("cameraPivot", 0)					-- Doesn't let you free look when the camera is on the ground
@@ -118,7 +118,6 @@ f:SetScript("OnEvent", function()
 	--------------------------
 	-- FLOATING COMBAT TEXT --
 	--------------------------
-
 	SetCVar("floatingCombatTextCombatDamage", 1)					--Display damage numbers over hostile creatures when damaged",
 	SetCVar("floatingCombatTextCombatDamageAllAutos", 0)			--Show all auto-attack numbers, rather than hiding non-event numbers",
 	SetCVar("floatingCombatTextCombatDamageDirectionalOffset", 0)	--Amount to offset directional damage numbers when they start",
@@ -148,7 +147,11 @@ f:SetScript("OnEvent", function()
 	SetCVar("floatingCombatTextSpellMechanics", 0)
 	SetCVar("floatingCombatTextSpellMechanicsOther", 0)
 
-
+	-----------------
+	-- SCREENSHOTS --
+	-----------------
+	SetCVar("screenshotFormat", "jpg")
+	SetCVar("screenshotQuality", 10)
 
 	f:UnregisterEvent("VARIABLES_LOADED")
 end)
