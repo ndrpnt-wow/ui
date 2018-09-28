@@ -7,12 +7,12 @@ local utility = {
 
 	["y"] = [[
 /use [nomod] 13
-/use [mod:shift] 6
+/use [mod:shift] 14
+/use [mod:alt] 6
 /use [mod:ctrl] 15
 ]],
 
 	["capslock"] = [[
-/use [nomod] 14
 /use [nomod] Gladiator's Medallion
 /use [nomod] Honorable Medallion
 ]],
