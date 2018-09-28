@@ -1,4 +1,4 @@
-PlayerFrame:SetScale(1.25)
+PlayerFrame:SetScale(1.2)
 PlayerFrameManaBar.FeedbackFrame:Hide()
 PlayerFrameManaBar.FullPowerFrame:Hide()
 PlayerFrame:UnregisterEvent("UNIT_COMBAT")
