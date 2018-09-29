@@ -5,7 +5,7 @@ for i = 1, 4 do
 
 	partyFrame:ClearAllPoints()
 	if i == 1 then
-		partyFrame:SetPoint("TOPRIGHT", PlayerFrame, "TOPRIGHT" , -10, -230)
+		partyFrame:SetPoint("TOPRIGHT", PlayerFrame, "BOTTOMLEFT" , 68, -5)
 	else
 		partyFrame:SetPoint("TOP", _G["PartyMemberFrame"..i-1], "BOTTOM", 0, -10)
 	end

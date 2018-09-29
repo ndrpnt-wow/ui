@@ -1,6 +1,7 @@
 -- TARGET FRAME
 TargetFrame:SetScale(1.2)
-ComboFrame:SetScale(1.25)
+ComboFrame:SetScale(1.4)
+ComboFrame:SetPoint("TOPRIGHT", TargetFrame, -37, -5)
 TargetFrame.TOT_AURA_ROW_WIDTH = 122
 TargetFrameTextureFramePVPIcon:SetAlpha(0)
 TargetFrameSpellBar:SetScale(1.25)
