@@ -1,6 +1,6 @@
 hooksecurefunc("UIParent_UpdateTopFramePositions", function()
 	PlayerFrame:ClearAllPoints()
-	PlayerFrame:SetPoint("CENTER", -400, 150)
+	PlayerFrame:SetPoint("CENTER", -380, 125)
 	PlayerFrame:SetUserPlaced(true)
 	PlayerFrame_SetLocked(true)
 
@@ -10,7 +10,7 @@ hooksecurefunc("UIParent_UpdateTopFramePositions", function()
 	TargetFrame_SetLocked(true)
 
 	FocusFrame:ClearAllPoints()
-	FocusFrame:SetPoint("CENTER", 180, -150)
+	FocusFrame:SetPoint("CENTER", 175, -120)
 	FocusFrame_SetLock(true)
 end)
 

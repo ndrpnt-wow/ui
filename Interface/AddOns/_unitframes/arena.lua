@@ -10,7 +10,7 @@ for i = 1, MAX_ARENA_ENEMIES do
 
     arenaFrame:ClearAllPoints()
     if i == 1 then
-        arenaFrame:SetPoint("CENTER", UIParent, "CENTER", 280, 75)
+        arenaFrame:SetPoint("CENTER", UIParent, "CENTER", 280, 90)
     else
         arenaFrame:SetPoint("TOP", _G["ArenaEnemyFrame" .. i - 1], "BOTTOM", 0, -25)
     end
