@@ -58,13 +58,9 @@ f:SetScript("OnEvent", function()
 	SetCVar("nameplateMaxScaleDistance", 0)			-- The distance from the camera that nameplates will reach their maximum scale; default: 10
 	SetCVar("nameplateLargerScale", 1)				-- An additional scale modifier for important monsters; default: 1.2
 	SetCVar("nameplateSelectedScale", 1)			-- The scale of the selected nameplate; default: 1.0
-	-- SetCVar("NamePlateHorizontalScale", 1)		-- Applied to horizontal size of all nameplates; default: 1.0
-	-- SetCVar("NamePlateVerticalScale", 1)		-- Applied to vertical size of all nameplates; default: 1.0
-		-- Don't uncomment the two CVars above and change these instead:
-		-- InterfaceOptionsNamesPanelUnitNameplatesMakeLarger.normalHorizontalScale = 1	-- default: 1.0
-		InterfaceOptionsNamesPanelUnitNameplatesMakeLarger.largeHorizontalScale = 1.3	-- default: 1.4
-		-- InterfaceOptionsNamesPanelUnitNameplatesMakeLarger.normalVerticalScale = 1		-- default: 1.0
-		InterfaceOptionsNamesPanelUnitNameplatesMakeLarger.largeVerticalScale = 1.7		-- default: 2.7
+	SetCVar("NamePlateHorizontalScale", 1.1)		-- Applied to horizontal size of all nameplates; default: 1.0
+	SetCVar("NamePlateVerticalScale", 1.2)		-- Applied to vertical size of all nameplates; default: 1.0
+	-- Don't uncomment the two CVars above, change the values in "_nameplates\core.lua"
 	SetCVar("nameplateMinAlpha", 1)					-- The minimum alpha of nameplates; default: .5
 	SetCVar("nameplateMinAlphaDistance", 0)			-- The distance from the max distance that nameplates will reach their minimum alpha; default: 10
 	SetCVar("nameplateMaxAlpha", 1)					-- The max alpha of nameplates; default: 0.9
