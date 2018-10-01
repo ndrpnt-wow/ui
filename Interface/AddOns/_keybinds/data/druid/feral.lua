@@ -8,8 +8,8 @@ local _, ns = ...
 ns.macros[103] = {
 
 	["1"] = [[
-/use [nomod]
-/use [mod:shift, @focus]
+/use [nomod] Wild Growth
+/use [mod:shift, @focus] Wild Growth
 /use [mod:alt] Revive
 /use [mod:ctrl] Rebirth
 ]],
@@ -17,29 +17,29 @@ ns.macros[103] = {
 	["2"] = [[
 /use [nomod] Tiger's Fury
 /use [mod:shift] Berserk
-/use [mod:alt] Hibernate
-/use [mod:ctrl, @focus] Hibernate
+/use [mod:alt] Rip and Tear
+/use [mod:ctrl, @focus] Rip and Tear
 ]],
 
 	["3"] = [[
 /use [nomod] Dash
 /use [mod:shift] Stampeding Roar
-/use [mod:alt] Rip and Tear
-/use [mod:ctrl, @focus] Rip and Tear
+/use [mod:alt] Feral Frenzy
+/use [mod:ctrl, @focus] Feral Frenzy
 ]],
 
 	["4"] = [[
 /use [nomod] Thorns
 /use [mod:shift, @focus] Thorns
-/use [mod:alt]
-/use [mod:ctrl, @focus]
+/use [mod:alt] Hibernate
+/use [mod:ctrl, @focus] Hibernate
 ]],
 
 	["5"] = [[
 /use [nomod] Survival Instincts
 /use [mod:shift] Renewal
-/use [mod:alt]
-/use [mod:ctrl, @focus]
+/use [mod:alt] Soothe
+/use [mod:ctrl, @focus] Soothe
 ]],
 
 	["q"] = [[
@@ -76,17 +76,17 @@ ns.macros[103] = {
 ]],
 
 	["t"] = [[
-/use [nomod] Feral Frenzy
-/use [mod:shift, @focus] Feral Frenzy
-/use [mod:alt] Savage Roar
-/use [mod:ctrl, @focus] Savage Roar
+/use [nomod] Swiftmend
+/use [mod:shift, @focus] Swiftmend
+/use [mod:alt] Rejuvenation
+/use [mod:ctrl, @focus] Rejuvenation
 ]],
 
 	["a"] = [[
 /use [nomod] Wild Charge
 /use [mod:shift, @focus] Wild Charge
-/use [mod:alt]
-/use [mod:ctrl, @focus]
+/cancelform [mod:alt]
+/use [mod:ctrl] !Travel Form
 ]],
 
 	["g"] = [[
@@ -117,8 +117,8 @@ ns.macros[103] = {
 	["b"] = [[
 /use [nomod] !Cat Form
 /use [mod:shift] !Bear Form
-/use [mod:alt] !Travel Form
-/use [mod:ctrl] !Moonkin Form
+/use [mod:alt] !Moonkin Form
+/use [mod:ctrl] Savage Roar
 ]],
 
 	["capslock"] = [[
