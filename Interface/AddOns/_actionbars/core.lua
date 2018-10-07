@@ -40,6 +40,17 @@ for _, button in ipairs({"ActionButton", "MultiBarBottomRightButton", "MultiBarB
 	end
 end
 
+-- RESIZE MAIN BAR
+-- All this complexity is needed to prevent the bar from reseting to its original scale
+local f = CreateFrame("frame")
+f:SetScript("OnEvent", function()
+	MainMenuBar:SetMovable(true)
+	MainMenuBar:SetUserPlaced(true)
+	MainMenuBar:SetMovable(false)
+	MainMenuBar:SetScale(.9)
+end)
+f:RegisterEvent("PLAYER_ENTERING_WORLD")
+
 -- HIDE PET BAR
 -- The 3 following lines are needed to prevent the bar from being shown again
 local hidden = CreateFrame("frame")

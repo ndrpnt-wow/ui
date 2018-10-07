@@ -1,4 +1,4 @@
-PlayerFrame:SetScale(1.2)
+PlayerFrame:SetScale(1)
 PlayerFrameManaBar.FeedbackFrame:Hide()
 PlayerFrameManaBar.FullPowerFrame:Hide()
 PlayerFrame:UnregisterEvent("UNIT_COMBAT")
@@ -30,7 +30,7 @@ PetName:Hide()
 PetFrame:UnregisterEvent("UNIT_COMBAT")
 
 -- CAST BAR
-CastingBarFrame:SetScale(1.11)
+CastingBarFrame:SetScale(1)
 CastingBarFrame:ClearAllPoints()
 CastingBarFrame:SetPoint("BOTTOM", UIParent, "BOTTOM", 0, 150)
 CastingBarFrame.SetPoint = function() end

@@ -10,17 +10,17 @@ for i = 1, MAX_ARENA_ENEMIES do
 
     arenaFrame:ClearAllPoints()
     if i == 1 then
-        arenaFrame:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -340, 285)
+        arenaFrame:SetPoint("BOTTOM", UIParent, "BOTTOM", 120, 275)
     else
         arenaFrame:SetPoint("TOP", _G["ArenaEnemyFrame" .. i - 1], "BOTTOM", 0, -17)
     end
     arenaFrame.SetPoint = function() end
-    arenaFrame:SetScale(1.5)
+    arenaFrame:SetScale(1.3)
 
     prepFrame:ClearAllPoints()
     prepFrame:SetAllPoints(arenaFrame)
     prepFrame.SetPoint = function() end
-    prepFrame:SetScale(1.5)
+    prepFrame:SetScale(1.3)
 
     castingBar:SetScale(1.05)
     castingBar:SetPoint("RIGHT", arenaFrame, "LEFT", -30, -3)

@@ -5,12 +5,12 @@ for i = 1, 4 do
 
 	partyFrame:ClearAllPoints()
 	if i == 1 then
-		partyFrame:SetPoint("TOPRIGHT", PlayerFrame, "TOPRIGHT" , -10, -230)
+		partyFrame:SetPoint("TOPRIGHT", PlayerFrame, "TOPRIGHT" , 0, -170)
 	else
 		partyFrame:SetPoint("TOP", _G["PartyMemberFrame"..i-1], "BOTTOM", 0, -10)
 	end
 	partyFrame.SetPoint = function() end
-	partyFrame:SetScale(1.7)
+	partyFrame:SetScale(1.5)
 
 	petFrame:ClearAllPoints()
 	petFrame:SetPoint("RIGHT", partyFrame, "LEFT", -5, 0)
