@@ -24,13 +24,13 @@ local SetCountdownNumbersOffset = function(cooldown, xOffset, yOffset)
 	countdownNumbers:SetPoint("CENTER", cooldown, xOffset or 0, yOffset or 0)
 end
 
-local hidden = CreateFrame("frame")
-hidden:Hide()
-hidden.Show = function() end
-PetActionBarFrame:SetParent(hidden)
-MainMenuBarArtFrame.LeftEndCap:Hide()
-MainMenuBarArtFrame.RightEndCap:Hide()
-IconIntroTracker:UnregisterEvent('SPELL_PUSHED_TO_ACTIONBAR')
+-- CLEAN UP STANCE BAR BUTTONS
+for i = 1, 10 do
+	SetCountdownNumbersFont(_G["StanceButton"..i.."Cooldown"], nil, 13)
+	SetCountdownNumbersOffset(_G["StanceButton"..i.."Cooldown"], 1, 0)
+end
+
+-- CLEAN UP ACTION BAR BUTTONS
 for _, button in ipairs({"ActionButton", "MultiBarBottomRightButton", "MultiBarBottomLeftButton", "MultiBarRightButton", "MultiBarLeftButton"}) do
 	for index = 1, 12 do
 		_G[button..index.."Name"]:SetAlpha(0)
@@ -39,7 +39,18 @@ for _, button in ipairs({"ActionButton", "MultiBarBottomRightButton", "MultiBarB
 		SetCountdownNumbersOffset(_G[button..index.."Cooldown"], 1, 0)
 	end
 end
-for i = 1, 10 do
-	SetCountdownNumbersFont(_G["StanceButton"..i.."Cooldown"], nil, 13)
-	SetCountdownNumbersOffset(_G["StanceButton"..i.."Cooldown"], 1, 0)
-end
+
+-- HIDE PET BAR
+-- The 3 following lines are needed to prevent the bar from being shown again
+local hidden = CreateFrame("frame")
+hidden:Hide()
+hidden.Show = function() end
+PetActionBarFrame:SetParent(hidden)
+
+-- HIDE GRYPHONS
+MainMenuBarArtFrame.LeftEndCap:Hide()
+MainMenuBarArtFrame.RightEndCap:Hide()
+
+-- PREVENT NEWLY LEARNED SPELLS TO MOVE IN THE MAIN ACTION BAR
+-- Doesn't work when a spell is learnt while switched to another bar (stealth, …)
+IconIntroTracker:UnregisterEvent('SPELL_PUSHED_TO_ACTIONBAR')
