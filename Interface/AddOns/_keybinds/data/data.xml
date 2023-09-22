@@ -1,39 +1,14 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="ids.lua"/>
+	<Script file="items.lua"/>
+	<Script file="misc.lua"/>
+	<Script file="race.lua"/>
+	<Script file="targeting.lua"/>
+	<Script file="vehicle.lua"/>
 
-	<!-- Misc -->
-	<Script file="misc\common.lua"/>
-	<Script file="misc\low.lua"/>
-	<Script file="misc\racials.lua"/>
-
-	<!-- Death Knight -->
-	<Script file="deathknight\blood.lua"/>
-	<Script file="deathknight\frost.lua"/>
+	<Script file="deathknight\level.lua"/>
 	<Script file="deathknight\unholy.lua"/>
 
-	<!-- Demon Hunter -->
-
-	<!-- Druid -->
-	<Script file="druid\feral.lua"/>
-
-	<!-- Hunter -->
-
-	<!-- Mage -->
-
-	<!-- Monk -->
-
-	<!-- Paladin -->
-
-	<!-- Priest -->
-
-	<!-- Rogue -->
-	<Script file="rogue\assassination.lua"/>
-	<Script file="rogue\outlaw.lua"/>
+	<Script file="rogue\level.lua"/>
 	<Script file="rogue\subtlety.lua"/>
-
-	<!-- Shaman -->
-
-	<!-- Warlock -->
-
-	<!-- Warrior -->
-
 </Ui>

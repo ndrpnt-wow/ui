@@ -1,114 +1,103 @@
-local _, class = UnitClass("player")
-if class ~= "DEATHKNIGHT" then
+if select(2, UnitClass("player")) ~= "DEATHKNIGHT" then
 	return
 end
 
 local _, ns = ...
 
-ns.macros[252] = {
-
-	["1"] = [[
-/use [nomod] Raise Dead
-/use [mod:ctrl] Raise Ally
+ns.fragments.specializations[ns.SPECIALIZATION_ID.DEATH_KNIGHT_UNHOLY] = {
+	[12] = [[
+/use [__MOD_0__] Raise Dead
+/use [__MOD_1__] Lichborne
+/use [__MOD_2__] Army of the Dead
+/use [__MOD_4__] Huddle
+/use [__MOD_5__] Raise Ally
 ]],
-
-	["2"] = [[
-/use [nomod] Summon Gargoyle
-/use [nomod] Unholy Frenzy
-/use [mod:shift, @focus] Summon Gargoyle
-/use [mod:alt] Control Undead
-/use [mod:ctrl, @focus] Control Undead
+	[13] = [[
+/use [__MOD_0__] Empower Rune Weapon
+/use [__MOD_1__] Icebound Fortitude
+/use [__MOD_2__] Summon Gargoyle
+/use [__MOD_4__] Path of Frost
 ]],
-
-	["3"] = [[
-/use [nomod] Death's Advance
-/use [mod:shift] !Wraith Walk
-/use [mod:shift] Death Pact
-/use [mod:ctrl] Army of the Dead
+	[14] = [[
+/use [__MOD_0__] Unholy Assault
+/use [__MOD_1__] Death's Advance
+/use [__MOD_2__] Abomination Limb
+/use [__MOD_3__] !Wraith Walk
+/use [__MOD_4__] Sacrificial Pact
 ]],
-
-	["4"] = [[
-/use [nomod] Anti-Magic Shell
-/use [mod:shift] Anti-Magic Zone
-/use [mod:ctrl] Path of Frost
+	[15] = [[
+/use [__MOD_0__] Anti-Magic Shell
+/use [__MOD_1__, @focus] Anti-Magic Shell
+/use [__MOD_2__] Anti-Magic Zone
+/use [__MOD_4__] Death Pact
 ]],
-
-	["5"] = [[
-/use [nomod] Icebound Fortitude
-/use [mod:shift] Huddle
-/use [mod:ctrl] Death Gate
+	[22] = [[
+/use [__MOD_0__] Chains of Ice
+/use [__MOD_1__, @focus] Chains of Ice
+/use [__MOD_2__] Outbreak
+/use [__MOD_3__, @focus] Outbreak
+/use [__MOD_4__] Dark Transformation
 ]],
-
-	["q"] = [[
-/use [nomod] Chains of Ice
-/use [mod:shift, @focus] Chains of Ice
-/use [mod:alt] Dark Command
-/use [mod:ctrl, @focus] Dark Command
+	[23] = [[
+/use [__MOD_0__] Festering Strike
+/use [__MOD_1__, @focus] Festering Strike
+/use [__MOD_2__] Death and Decay
+/use [__MOD_3__] Epidemic
+/use [__MOD_4__] Unholy Blight
 ]],
-
-	["w"] = [[
-/use [nomod] Outbreak
-/use [mod:shift, @focus] Outbreak
-/use [mod:alt] Soul Reaper
-/use [mod:ctrl, @focus] Soul Reaper
+	[24] = [[
+/use [__MOD_0__] Scourge Strike
+/use [__MOD_1__, @focus] Scourge Strike
+/use [__MOD_2__] Soul Reaper
+/use [__MOD_3__, @focus] Soul Reaper
+/use [__MOD_4__] Vile Contagion
+/use [__MOD_5__, @focus] Vile Contagion
 ]],
-
-	["e"] = [[
-/use [nomod] Scourge Strike
-/use [mod:shift, @focus] Scourge Strike
-/use [mod:alt] Necrotic Strike
-/use [mod:ctrl, @focus] Necrotic Strike
+	[25] = [[
+/use [__MOD_0__] Death Coil
+/use [__MOD_1__, @focus] Death Coil
+/use [__MOD_2__] Death Strike
+/use [__MOD_3__, @focus] Death Strike
+/use [__MOD_4__, @player] Death Coil
+/use [__MOD_5__, @pet] Death Coil
 ]],
-
-	["r"] = [[
-/use [nomod] Festering Strike
-/use [mod:shift, @focus] Festering Strike
-/use [mod:alt] Dark Simulacrum
-/use [mod:ctrl, @focus] Dark Simulacrum
+	[26] = [[
+/use [__MOD_0__] Apocalypse
+/use [__MOD_1__, @focus] Apocalypse
+/use [__MOD_2__] Reanimation
+/use [__MOD_3__, @focus] Reanimation
 ]],
-
-	["t"] = [[
-/use [nomod] Death Coil
-/use [mod:shift, @focus] Death Coil
-/use [mod:alt] Death Strike
-/use [mod:ctrl, @focus] Death Strike
+	[27] = [[
 ]],
-
-	["a"] = [[
-/use [nomod] Death Grip
-/use [mod:shift, @focus] Death Grip
-/use [mod:alt] Dark Transformation
+	[31] = [[
 ]],
-
-	["g"] = [[
-/use [nomod] Mind Freeze
-/use [mod:shift, @focus] Mind Freeze
-/use [mod:alt] Leap
-/use [mod:alt] Hook
-/use [mod:ctrl, @focus] Leap
-/use [mod:ctrl, @focus] Hook
+	[32] = [[
+/use [__MOD_0__] Death Grip
+/use [__MOD_1__, @focus] Death Grip
+/use [__MOD_2__] Dark Simulacrum
+/use [__MOD_3__, @focus] Dark Simulacrum
+/use [__MOD_4__] Dark Command
+/use [__MOD_5__, @focus] Dark Command
 ]],
-
-	["h"] = [[
-/use [nomod] Asphyxiate
-/use [mod:shift, @focus] Asphyxiate
-/use [mod:alt] Gnaw
-/use [mod:alt] Smash
-/use [mod:ctrl, @focus] Gnaw
-/use [mod:ctrl, @focus] Smash
+	[36] = [[
+/use [__MOD_0__] Mind Freeze
+/use [__MOD_1__, @focus] Mind Freeze
+/use [__MOD_2__] Leap
+/use [__MOD_3__, @focus] Leap
 ]],
-
-	["v"] = [[
-/use [nomod] Death and Decay
-/use [mod:shift] Unholy Blight
-/use [mod:alt] Epidemic
+	[37] = [[
 ]],
-
-	["b"] = [[
-/cast [nomod] Apocalypse
-/cast [mod:shift, @focus] Apocalypse
-/use [mod:alt] Reanimation
-/use [mod:ctrl, @focus] Reanimation
+	[46] = [[
+/use [__MOD_0__] Asphyxiate
+/use [__MOD_1__, @focus] Asphyxiate
+/use [__MOD_2__] Strangulate
+/use [__MOD_3__, @focus] Strangulate
+/use [__MOD_4__] Blinding Sleet
 ]],
-
+	[47] = [[
+/use [__MOD_0__] Gnaw
+/use [__MOD_1__, @focus] Gnaw
+/use [__MOD_2__] Control Undead
+/use [__MOD_3__, @focus] Control Undead
+]],
 }

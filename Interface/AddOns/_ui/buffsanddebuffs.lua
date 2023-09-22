@@ -1,0 +1,1 @@
+BuffFrame:SetScale(0.8)

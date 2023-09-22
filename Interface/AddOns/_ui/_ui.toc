@@ -1,0 +1,19 @@
+## Interface: 100107
+## Title: _ui
+## SavedVariables: goldsDB
+
+
+actionbars.lua
+buffsanddebuffs.lua
+combaticons.lua
+combatsound.lua
+cvars.lua
+errorframe.lua
+lossofcontrol.lua
+nameplates.lua
+settings.lua
+slashgolds.lua
+slashposition.lua
+slashreload.lua
+sounds.lua
+spelloverlay.lua

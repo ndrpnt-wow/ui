@@ -1,36 +1,16 @@
-PlayerFrame:SetScale(1)
-PlayerFrameManaBar.FeedbackFrame:Hide()
-PlayerFrameManaBar.FullPowerFrame:Hide()
-PlayerFrame:UnregisterEvent("UNIT_COMBAT")
+_G.PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea.ManaBar.FeedbackFrame:Hide()
+_G.PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea.ManaBar.FullPowerFrame:Hide()
+_G.PlayerFrame:UnregisterEvent("UNIT_COMBAT")
 
--- REMOVE COMBO FRAME ANIMATIONS
-hooksecurefunc(ComboPointPlayerFrame, "UpdateMaxPower", function(self)
-	for i = 1, #self.ComboBonus do
-		self.ComboBonus[i].AnimIn = self.ComboBonus[i]:CreateAnimationGroup()
-		self.ComboBonus[i].AnimOut = self.ComboBonus[i]:CreateAnimationGroup()
-	end
-	for i = 1, #self.ComboPoints do
-		self.ComboPoints[i].PointAnim = self.ComboPoints[i]:CreateAnimationGroup()
-		self.ComboPoints[i].AnimIn = self.ComboPoints[i]:CreateAnimationGroup()
-		self.ComboPoints[i].AnimOut = self.ComboPoints[i]:CreateAnimationGroup()
-	end
-end)
-hooksecurefunc(ComboPointPlayerFrame, "AnimIn", function(self, frame)
-	frame.Point:SetAlpha(1)
-end)
-hooksecurefunc(ComboPointPlayerFrame, "AnimOut", function(self, frame)
-	frame.Point:SetAlpha(0)
-end)
-
--- PET FRAME
-PetFrame:ClearAllPoints()
-PetFrame:SetPoint("RIGHT", PlayerFrame, "LEFT", 35, 0)
-PetFrame:SetScale(0.9)
-PetName:Hide()
-PetFrame:UnregisterEvent("UNIT_COMBAT")
-
--- CAST BAR
-CastingBarFrame:SetScale(1)
-CastingBarFrame:ClearAllPoints()
-CastingBarFrame:SetPoint("BOTTOM", UIParent, "BOTTOM", 0, 150)
-CastingBarFrame.SetPoint = function() end
+-- Disable action bar casts
+_G.ActionBarActionEventsFrame:UnregisterEvent("UNIT_SPELLCAST_SUCCEEDED")
+_G.ActionBarActionEventsFrame:UnregisterEvent("UNIT_SPELLCAST_INTERRUPTED")
+_G.ActionBarActionEventsFrame:UnregisterEvent("UNIT_SPELLCAST_FAILED")
+_G.ActionBarActionEventsFrame:UnregisterEvent("UNIT_SPELLCAST_START")
+_G.ActionBarActionEventsFrame:UnregisterEvent("UNIT_SPELLCAST_STOP")
+_G.ActionBarActionEventsFrame:UnregisterEvent("UNIT_SPELLCAST_CHANNEL_START")
+_G.ActionBarActionEventsFrame:UnregisterEvent("UNIT_SPELLCAST_CHANNEL_STOP")
+_G.ActionBarActionEventsFrame:UnregisterEvent("UNIT_SPELLCAST_RETICLE_TARGET")
+_G.ActionBarActionEventsFrame:UnregisterEvent("UNIT_SPELLCAST_RETICLE_CLEAR")
+_G.ActionBarActionEventsFrame:UnregisterEvent("UNIT_SPELLCAST_EMPOWER_START")
+_G.ActionBarActionEventsFrame:UnregisterEvent("UNIT_SPELLCAST_EMPOWER_STOP")

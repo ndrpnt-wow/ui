@@ -1,8 +1,4 @@
 /*
 !/.gitignore
-!/Interface/
-!/Sound/
-!/Fonts/
-
-/Interface/AddOns/*
 !/Interface/AddOns/_*/
+!/Sound/

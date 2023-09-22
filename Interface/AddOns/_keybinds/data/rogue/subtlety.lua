@@ -1,125 +1,114 @@
-local _, class = UnitClass("player")
-if class ~= "ROGUE" then
+if select(2, UnitClass("player")) ~= "ROGUE" then
 	return
 end
 
 local _, ns = ...
 
-ns.macros[261] = {
-
-	["1"] = [[
-/use [nomod] Vanish
-/use [mod:shift] Shroud of Concealment
-/use [mod:alt] Distract
+ns.fragments.specializations[ns.SPECIALIZATION_ID.ROGUE_SUBTLETY] = {
+	[12] = [[
+/use [__MOD_0__] Vanish
+/use [__MOD_1__] Shroud of Concealment
+/use [__MOD_2__] Smoke Bomb
+/use [__MOD_4__] Distract
 ]],
-
-	["2"] = [[
-/use [nomod] Symbols of Death
-/use [mod:shift] Shadow Blades
+	[13] = [[
+/use [__MOD_0__] Symbols of Death
+/use [__MOD_2__] Shadow Blades
 ]],
-
-	["3"] = [[
-/use [nomod] Shadow Dance
-/use [mod:shift] Sprint
-/use [mod:alt] Marked for Death
-/use [mod:ctrl, @focus] Marked for Death
+	[14] = [[
+/use [__MOD_0__] Shadow Dance
+/use [__MOD_1__] Sprint
+/use [__MOD_2__] Cold Blood
 ]],
-
-	["4"] = [[
-/use [nomod] Cloak of Shadows
-/use [mod:shift] Smoke Bomb
-/use [mod:ctrl] Detection
+	[15] = [[
+/use [__MOD_0__] Evasion
+/use [__MOD_1__] Cloak of Shadows
+/use [__MOD_2__] Marked for Death
 ]],
-
-	["5"] = [[
-/use [nomod] Evasion
-/use [mod:shift, @XXX, exists, noharm, nodead][mod:shift, @mouseover, exists, noharm, nodead][mod:shift, @focus, exists, noharm, nodead][mod:shift] Tricks of the Trade
-/use [mod:ctrl, @mouseover, exists][mod:ctrl] Pick Pocket
+	[22] = [[
+/stopattack [__MOD_0__]
+/use [__MOD_0__] !Stealth
+/cancelaura [__MOD_1__] Stealth
+/cancelaura [__MOD_1__] Shadow Dance
+/cancelaura [__MOD_1__] Vanish
+/use [__MOD_2__] Rupture
+/use [__MOD_3__, @focus] Rupture
+/use [__MOD_4__] Slice and Dice
 ]],
-
-
-	["q"] = [[
-/stopattack [nomod]
-/use [nomod] !Stealth
-/cancelaura [mod:shift] Stealth
-/run for i=1,40 do if UnitAura("player", i) == "Shadow Dance" then CancelUnitBuff("player", i) end end
-/cancelaura [mod:shift] Shadow Dance
-/cancelaura [mod:shift] Vanish
-/use [mod:alt] Death from Above
-/use [mod:ctrl, @focus] Death from Above
+	[23] = [[
+/use [__MOD_0__] Cheap Shot
+/use [__MOD_1__, @focus] Cheap Shot
+/use [__MOD_2__] Kidney Shot
+/use [__MOD_3__, @focus] Kidney Shot
+/use [__MOD_4__] Dismantle
+/use [__MOD_5__, @focus] Dismantle
 ]],
-
-	["w"] = [[
-/use [nomod] Cheap Shot
-/use [mod:shift, @focus] Cheap Shot
-/use [mod:alt] Kidney Shot
-/use [mod:ctrl, @focus] Kidney Shot
+	[24] = [[
+/use [__MOD_0__] Shadowstrike
+/use [__MOD_1__, @focus] Shadowstrike
+/use [__MOD_2__] Eviscerate
+/use [__MOD_3__, @focus] Eviscerate
+/use [__MOD_4__] Echoing Reprimand
+/use [__MOD_5__, @focus] Echoing Reprimand
 ]],
-
-	["e"] = [[
-/use [nomod] Shadowstrike
-/use [mod:shift, @focus] Shadowstrike
-/use [mod:alt] Eviscerate
-/use [mod:ctrl, @focus] Eviscerate
+	[25] = [[
+/use [__MOD_0__] Backstab
+/use [__MOD_0__] Gloomblade
+/use [__MOD_1__, @focus] Backstab
+/use [__MOD_1__, @focus] Gloomblade
+/use [__MOD_2__] Secret Technique
+/use [__MOD_3__, @focus] Secret Technique
+/use [__MOD_4__] Sepsis
+/use [__MOD_5__, @focus] Sepsis
 ]],
-
-	["r"] = [[
-/use [nomod] Backstab
-/use [mod:shift, @focus] Backstab
-/use [mod:alt] Nightblade
-/use [mod:ctrl, @focus] Nightblade
+	[26] = [[
+/use [__MOD_0__] Shiv
+/use [__MOD_1__, @focus] Shiv
+/use [__MOD_2__] Death from Above
+/use [__MOD_3__, @focus] Death from Above
+/use [__MOD_4__] Flagellation
+/use [__MOD_5__, @focus] Flagellation
 ]],
-
-	["t"] = [[
-/use [nomod] Shiv
-/use [mod:shift, @focus] Shiv
-/use [mod:alt] Secret Technique
-/use [mod:ctrl, @focus] Secret Technique
+	[27] = [[
+/use [__MOD_0__] Crimson Vial
 ]],
-
-	["a"] = [[
-/use [nomod] Shadowstep
-/use [mod:shift, @focus] Shadowstep
-/use [mod:alt] Shadowstep
-/use [mod:ctrl, @focus] Shadowstep
+	[31] = [[
+/stopattack [__MOD_2__]
+/use [__MOD_2__, combat] Shadowmeld
+/use [__MOD_2__] !Stealth
 ]],
-
-	["g"] = [[
-/use [nomod] Kick
-/use [mod:shift, @focus] Kick
-/use [mod:alt] Cold Blood
-/use [mod:ctrl] Feint
+	[32] = [[
+/use [__MOD_0__] Shadowstep
+/use [__MOD_1__, @focus] Shadowstep
+/use [__MOD_2__] Shadowstep
+/use [__MOD_3__, @focus] Shadowstep
+/use [__MOD_4__] Shuriken Toss
+/use [__MOD_5__, @focus] Shuriken Toss
 ]],
-
-	["h"] = [[
-/use [nomod] Blind
-/use [mod:shift, @focus] Blind
-/use [mod:alt] Shadowy Duel
-/use [mod:ctrl, @focus] Shadowy Duel
+	[36] = [[
+/use [__MOD_0__] Kick
+/use [__MOD_1__, @focus] Kick
+/use [__MOD_2__] Gouge
+/use [__MOD_3__, @focus] Gouge
+/use [__MOD_4__] Feint
 ]],
-
-	["v"] = [[
-/use [nomod] Shuriken Toss
-/use [mod:shift, @focus] Shuriken Toss
-/use [mod:alt] Shuriken Storm
-/use [mod:ctrl] Shuriken Tornado
+	[37] = [[
+/use [__MOD_0__] Shuriken Storm
+/use [__MOD_1__] Shuriken Tornado
+/use [__MOD_2__] Black Powder
 ]],
-
-	["b"] = [[
-/use [nomod] Sap
-/use [mod:shift, @focus] Sap
-/targetenemy [mod:alt]
-/use [mod:alt] Sap
-/use [mod:ctrl] Crimson Vial
-/cast [mod:ctrl] Crimson Vial
+	[46] = [[
+/use [__MOD_0__] Sap
+/use [__MOD_1__, @focus] Sap
+/targetenemy [__MOD_2__]
+/use [__MOD_2__] Sap
+/use [__MOD_4__, @XXX] Tricks of the Trade
+/use [__MOD_5__, @mouseover, exists, noharm, nodead][__MOD_5__, @target, exists, noharm, nodead][__MOD_5__, @focus, exists, noharm, nodead][__MOD_5__] Tricks of the Trade
 ]],
--- /use [mod:alt, @arena1, exists, harm, nodead][mod:alt, @arena2, exists, harm, nodead][mod:alt, @arena3, exists, harm, nodead] Sap
-
-
-	["capslock"] = [[
-/stopattack [mod:alt]
-/use [mod:alt, combat] Shadowmeld
-/use [mod:alt] !Stealth
+	[47] = [[
+/use [__MOD_0__] Blind
+/use [__MOD_1__, @focus] Blind
+/use [__MOD_2__] Shadowy Duel
+/use [__MOD_3__, @focus] Shadowy Duel
 ]],
-
 }

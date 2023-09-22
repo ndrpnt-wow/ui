@@ -1,5 +1,0 @@
-BuffFrame:SetScale(0.8)
-hooksecurefunc("BuffFrame_UpdateAllBuffAnchors", function()
-	BuffFrame:ClearAllPoints()
-	BuffFrame:SetPoint("TOPRIGHT", PlayerFrame, "BOTTOMRIGHT", -10, 0)
-end)
